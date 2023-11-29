@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Pretend to build stuff
+        run: |
+          mkdir dist
+          cp src/index.html dist/index-1.2.3.4.5.html
       - name: Add the package to the release
-        run: gh release upload ${{github.event.release.tag_name}} src/index.html
+        run: gh release upload ${{github.event.release.tag_name}} dist
         env:
           GH_TOKEN: ${{ github.token }}
