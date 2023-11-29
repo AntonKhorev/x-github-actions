@@ -6,4 +6,6 @@ on:
 
 jobs:
   greet:
-    - run: echo hello
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
