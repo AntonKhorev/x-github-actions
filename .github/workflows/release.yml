@@ -2,7 +2,7 @@ name: Release workflow
 
 on:
   release:
-    types: [created]
+    types: created
 
 permissions:
   contents: write
@@ -17,6 +17,6 @@ jobs:
           mkdir dist
           cp src/index.html dist/index-1.2.3.4.5.html
       - name: Add the package to the release
-        run: gh release upload ${{github.event.release.tag_name}} dist
+        run: gh release upload ${{github.event.release.tag_name}} dist/*.html
         env:
           GH_TOKEN: ${{ github.token }}
