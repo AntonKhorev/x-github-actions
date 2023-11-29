@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Add the package to the release
-        run: gh release upload src/index.html
+        run: gh release upload ${{github.event.release.tag_name}} src/index.html
